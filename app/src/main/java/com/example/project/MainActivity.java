@@ -1,7 +1,10 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,10 +25,24 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     private ArrayList<Djur> apor;
     private DjurAdapter adapter;
 
+    private Button Knapp;
+
+    private Intent newIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Knapp = findViewById(R.id.button1);
+
+        Knapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MainActivity2.class));
+                newIntent = new Intent(MainActivity.this, MainActivity2.class);
+                startActivity(newIntent);
+            }
+        });
 
         RecyclerView = findViewById(R.id.myRecycler_view);
         apor = new ArrayList<Djur>();
@@ -45,4 +62,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             apor.addAll(data);
             adapter.notifyDataSetChanged();
         }
+
+
 }
