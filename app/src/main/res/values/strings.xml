@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Project</string>
+    <string name="TextITextView">Denna appen är en simpel app som visar upp 5 olika primater med deras namn
+    samt deras genomsnittliga vikt i kilo. Denna appen skapades av a22samka </string>
 </resources>
